@@ -9,6 +9,7 @@ import ReviewHeader from "../ReviewHeader/ReviewHeader";
 import Services from "../Services/Services";
 import UiReview from "../UiReview/UiReview";
 import Works from "../Works/Works";
+import Footer from "../Footer/Footer";
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
       <ReviewHeader />
       <UiReview />
       <News />
+      <Footer />
     </div>
   );
 };

@@ -9,6 +9,14 @@
   margin-top: 30px;
 }
 
+.footer-icon {
+  padding: 12px;
+  background-color: #ffdd00;
+  margin: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 768px) {
   .choose-box {
     margin-left: 0px;
