@@ -1,0 +1,184 @@
+import * as React from "react";
+import PropTypes from "prop-types";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import { NavLink } from "react-router-dom";
+import { Button, CardMedia } from "@mui/material";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
+import Payment from "../Payment/Payment";
+import MyOrders from "../MyOrders/MyOrders";
+import Review from "../Review/Review";
+
+const drawerWidth = 240;
+const Dashboard = (props) => {
+  let { path, url } = useRouteMatch();
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const drawer = (
+    <div style={{ textAlign: "center" }}>
+      <Toolbar />
+      <Divider />
+      <NavLink
+        to="/home"
+        style={{
+          textDecoration: "none",
+          background: "#111",
+          padding: "10px 0",
+          display: "block",
+          fontSize: "18px",
+          color: "white",
+          margin: "5px 0",
+        }}
+      >
+        Back Home
+      </NavLink>{" "}
+      <NavLink
+        to={`${url}/payment`}
+        activeStyle={{
+          color: "red",
+        }}
+        style={{
+          textDecoration: "none",
+          background: "#ffdd00",
+          padding: "10px 0",
+          display: "block",
+          fontSize: "18px",
+          color: "black",
+          margin: "5px 0",
+        }}
+      >
+        Pay
+      </NavLink>{" "}
+      <NavLink
+        to={`${url}/myOrders`}
+        activeStyle={{
+          color: "red",
+        }}
+        style={{
+          textDecoration: "none",
+          background: "#ffdd00",
+          padding: "10px 0",
+          display: "block",
+          fontSize: "18px",
+          color: "black",
+          margin: "5px 0",
+        }}
+      >
+        My Orders
+      </NavLink>{" "}
+      <NavLink
+        to={`${url}/review`}
+        activeStyle={{
+          color: "red",
+        }}
+        style={{
+          textDecoration: "none",
+          background: "#ffdd00",
+          padding: "10px 0",
+          display: "block",
+          fontSize: "18px",
+          color: "black",
+          margin: "5px 0",
+        }}
+      >
+        Review
+      </NavLink>
+      <Button
+        style={{
+          background: "#ffdd00",
+          padding: "10px 0",
+          width: "100%",
+          fontSize: "18px",
+          color: "black",
+          margin: "5px 0",
+        }}
+        variant="inherit"
+      >
+        logOut
+      </Button>
+    </div>
+  );
+
+  const container = window !== undefined ? () => window().document.body : undefined;
+
+  return (
+    <Box sx={{ display: "flex" }}>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        sx={{
+          background: "#1A1A1A",
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          ml: { sm: `${drawerWidth}px` },
+        }}
+      >
+        <Toolbar>
+          <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} sx={{ mr: 2, display: { sm: "none" } }}>
+            <MenuIcon />
+          </IconButton>
+          <CardMedia component="img" style={{ width: "150px" }} image="https://i.ibb.co/PxLTsjB/logo-rentive-fix-white.png" alt="Paella dish" />
+        </Toolbar>
+      </AppBar>
+      <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }} aria-label="mailbox folders">
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        <Drawer
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+          }}
+        >
+          {drawer}
+        </Drawer>
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+          }}
+          open
+        >
+          {drawer}
+        </Drawer>
+      </Box>
+      <Box component="main" sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}>
+        <Toolbar />
+        <Switch>
+          <Route exact path={path}>
+            <MyOrders />
+          </Route>
+          <Route path={`${path}/payment`} component={Payment} />
+          <Route path={`${path}/myOrders`} component={MyOrders} />
+          <Route path={`${path}/review`} component={Review} />
+        </Switch>
+      </Box>
+    </Box>
+  );
+};
+
+Dashboard.propTypes = {
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window: PropTypes.func,
+};
+
+export default Dashboard;

@@ -1,0 +1,12 @@
+.review form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+}
+
+.review form input,
+textarea {
+  width: 500px;
+  margin-bottom: 10px;
+}
