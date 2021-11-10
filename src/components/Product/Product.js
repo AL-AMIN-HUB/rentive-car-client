@@ -1,5 +1,5 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 
 const Product = ({ product }) => {
   const { name, desc, price, img } = product;

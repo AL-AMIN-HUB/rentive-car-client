@@ -4,6 +4,7 @@ import Banner from "../Banner/Banner";
 import ChooseUs from "../ChooseUs/ChooseUs";
 import Contact from "../Contact/Contact";
 import Misson from "../Mission/Misson";
+import News from "../News/News";
 import ReviewHeader from "../ReviewHeader/ReviewHeader";
 import Services from "../Services/Services";
 import UiReview from "../UiReview/UiReview";
@@ -21,6 +22,7 @@ const Home = () => {
       <ChooseUs />
       <ReviewHeader />
       <UiReview />
+      <News />
     </div>
   );
 };
