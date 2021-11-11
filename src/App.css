@@ -3,6 +3,9 @@
   background: -webkit-linear-gradient(90deg, #29ffc6, #20e3b2, #0cebeb); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(90deg, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+.App {
+  margin-top: 50px;
+}
 
 .choose-box {
   margin-left: -100px;

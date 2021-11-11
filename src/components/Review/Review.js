@@ -29,8 +29,13 @@ const Review = () => {
         />
         <input style={{ fontSize: "18px", padding: "10px" }} {...register("profession", { required: true })} placeholder="Your Profession" />
         <input style={{ fontSize: "18px", padding: "10px" }} {...register("img", { required: true })} placeholder="Your photo url" />
-        <textarea rows="7" style={{ fontSize: "18px", padding: "10px" }} {...register("desc", { required: true })} placeholder="Comment " />
-        <input style={{ fontSize: "18px", padding: "10px" }} type="submit" />
+        <textarea
+          rows="7"
+          style={{ fontSize: "18px", padding: "10px", border: "1px solid grey" }}
+          {...register("desc", { required: true })}
+          placeholder="Comment "
+        />
+        <input style={{ fontSize: "18px", padding: "10px", cursor: "pointer" }} type="submit" />
       </form>
     </div>
   );

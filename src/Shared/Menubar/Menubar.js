@@ -17,14 +17,14 @@ const Menubar = () => {
           <>
             <NavItem to="/dashboard">Dashboard</NavItem>
             <NavItem to="/login">
-              <Button onClick={logOut} variant="inherit">
+              <Button onClick={logOut} variant="contained">
                 Logout
               </Button>
             </NavItem>
           </>
         ) : (
           <NavItem to="/login">
-            <Button variant="inherit">Login</Button>
+            <Button variant="contained">Login</Button>
           </NavItem>
         )}
       </MuiNavbar>

@@ -1,24 +1,37 @@
-import { Button } from "@mui/material";
+import { Button, LinearProgress, Stack } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Menubar from "../Menubar/Menubar";
 
 const Login = () => {
-  const { googleLogin } = useAuth();
+  const { googleLogin, isLoading, loginUser } = useAuth();
   const { register, handleSubmit, reset } = useForm();
+
+  const location = useLocation();
+  const history = useHistory();
+
   const onSubmit = (data) => {
-    console.log(data);
+    loginUser(data.email, data.password, location, history);
     reset();
+  };
+
+  const handleGoogleSignIn = () => {
+    googleLogin(location, history);
   };
   return (
     <>
       <Menubar />
-      <div className="login" style={{ textAlign: "center", paddingTop: "15%", color: "white" }}>
+      <div className="login" style={{ textAlign: "center", paddingTop: "8%", color: "white" }}>
+        {isLoading && (
+          <Stack sx={{ width: "100%", color: "grey.500" }} spacing={2}>
+            <LinearProgress color="secondary" />
+          </Stack>
+        )}
         <div
           style={{
-            margin: "0 auto",
+            margin: "50px 0 auto",
             display: "inline-block",
             // border: "1px solid red",
             boxShadow: "inset 1px 1px 10px rgb(255,255,255,0.2)",
@@ -26,16 +39,22 @@ const Login = () => {
           }}
         >
           <img style={{ width: "150px" }} src="https://i.ibb.co/PxLTsjB/logo-rentive-fix-white.png" alt="" />
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <input placeholder="Email" style={{ fontSize: "18px", padding: "10px" }} {...register("email")} type="email" />
-            <input placeholder="Password" style={{ fontSize: "18px", padding: "10px" }} {...register("password")} type="password" />
-            <input style={{ fontSize: "18px", padding: "10px", background: "#EC5990", border: "none", color: "white" }} value="LOGIN" type="submit" />
-          </form>
+          {!isLoading && (
+            <form style={{ margin: "0 auto" }} onSubmit={handleSubmit(onSubmit)}>
+              <input placeholder="Email" style={{ fontSize: "18px", padding: "10px" }} {...register("email")} type="email" />
+              <input placeholder="Password" style={{ fontSize: "18px", padding: "10px" }} {...register("password")} type="password" />
+              <input
+                style={{ fontSize: "18px", padding: "10px", background: "#EC5990", border: "none", color: "white", cursor: "pointer" }}
+                value="LOGIN"
+                type="submit"
+              />
+            </form>
+          )}
           <div>
-            <h3>-------------- Or Login with -------------</h3>
+            <h3>--------- Or Login with --------</h3>
           </div>
           <div style={{ marginTop: "20px" }}>
-            <Button onClick={googleLogin} className="btn-custom" style={{ color: "white", padding: "10px 28px", borderRadius: "0" }}>
+            <Button onClick={handleGoogleSignIn} className="btn-custom" style={{ color: "white", padding: "10px 28px", borderRadius: "0" }}>
               <img style={{ width: "30px", margin: "0 5px" }} src="https://www.bryan-myers.com/images/1x1/google-llc.png" alt="" /> Google
             </Button>
           </div>

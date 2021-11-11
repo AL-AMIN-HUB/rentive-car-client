@@ -1,8 +1,9 @@
 import React from "react";
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
-  const { name, desc, price, img } = product;
+  const { name, desc, price, img, _id } = product;
   return (
     <React.Fragment>
       <Grid item xs={4} sm={8} md={4}>
@@ -20,9 +21,11 @@ const Product = ({ product }) => {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button sx={{ width: 1, display: "block", color: "white" }} className="btn-custom">
-              Buy Now
-            </Button>
+            <Link style={{ width: "100%", textDecoration: "none" }} to={`/orderPlace/${_id}`}>
+              <Button sx={{ width: 1, display: "block", color: "white" }} className="btn-custom">
+                Buy Now
+              </Button>
+            </Link>
           </CardActions>
         </Card>
       </Grid>

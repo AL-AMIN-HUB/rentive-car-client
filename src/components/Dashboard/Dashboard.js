@@ -14,9 +14,11 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import Payment from "../Payment/Payment";
 import MyOrders from "../MyOrders/MyOrders";
 import Review from "../Review/Review";
+import useAuth from "../../hooks/useAuth";
 
 const drawerWidth = 240;
 const Dashboard = (props) => {
+  const { logOut } = useAuth();
   let { path, url } = useRouteMatch();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -94,19 +96,22 @@ const Dashboard = (props) => {
       >
         Review
       </NavLink>
-      <Button
-        style={{
-          background: "#ffdd00",
-          padding: "10px 0",
-          width: "100%",
-          fontSize: "18px",
-          color: "black",
-          margin: "5px 0",
-        }}
-        variant="inherit"
-      >
-        logOut
-      </Button>
+      <NavLink style={{ textDecoration: "none" }} to="/login">
+        <Button
+          onClick={logOut}
+          style={{
+            background: "#ffdd00",
+            padding: "10px 0",
+            width: "100%",
+            fontSize: "18px",
+            color: "black",
+            margin: "5px 0",
+          }}
+          variant="inherit"
+        >
+          logOut
+        </Button>
+      </NavLink>
     </div>
   );
 

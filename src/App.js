@@ -9,6 +9,8 @@ import Login from "./Shared/Login/Login";
 import Register from "./Shared/Register/Register";
 import Contact from "./components/Contact/Contact";
 import About from "./components/About/About";
+import OrderPlace from "./components/OrderPlace/OrderPlace";
+import PrivateRoute from "./Shared/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/explore" component={Explore} />
+            <PrivateRoute path="/orderPlace/:productId">
+              <OrderPlace></OrderPlace>
+            </PrivateRoute>
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/about" component={About} />
             <Route path="/dashboard" component={Dashboard} />

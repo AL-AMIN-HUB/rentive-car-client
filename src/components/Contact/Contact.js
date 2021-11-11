@@ -4,13 +4,12 @@ import TextareaAutosize from "@mui/core/TextareaAutosize";
 import React from "react";
 import "./Contact.css";
 import Menubar from "../../Shared/Menubar/Menubar";
-import Footer from "../Footer/Footer";
 
 const Contact = () => {
   return (
     <React.Fragment>
       <Menubar />
-      <Box className="contact" style={{ paddingTop: "100px" }} sx={{ my: 5 }}>
+      <Box className="contact" style={{ paddingTop: "50px" }} sx={{ my: 5 }}>
         <Container sx={{ color: "white" }}>
           <Grid container spacing={5}>
             <Grid sx={{ mt: "10%" }} item xs={12} md={7}>
@@ -91,7 +90,6 @@ const Contact = () => {
           </Grid>
         </Container>
       </Box>
-      <Footer />
     </React.Fragment>
   );
 };

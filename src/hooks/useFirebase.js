@@ -8,6 +8,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 
 // initialize firebase app
@@ -21,12 +22,14 @@ const useFirebase = () => {
   const auth = getAuth();
 
   //   sign in with google
-  const googleLogin = () => {
+  const googleLogin = (history, location) => {
     setIsLoading(true);
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
         setUser(result.user);
+        const redirect_url = location?.state?.from || "/";
+        history.replace(redirect_url);
         // ...
       })
       .catch((error) => {
@@ -38,13 +41,27 @@ const useFirebase = () => {
   };
 
   //   create new user with email and password
-  const registerUser = (email, password) => {
+  const registerUser = (email, password, history, name) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         setUser(result.user);
         // Signed in
-        console.log("register page", result);
+        history.push("/home");
+
+        //
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+          .then(() => {
+            // Profile updated!
+            // ...
+          })
+          .catch((error) => {
+            // An error occurred
+            // ...
+          });
+        // console.log("register page", result);
       })
       .catch((error) => {
         setError(error);
@@ -57,13 +74,15 @@ const useFirebase = () => {
   };
 
   //   sign in user with email and password
-  const loginUser = (email, password) => {
+  const loginUser = (email, password, location, history) => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         // Signed in
         setUser(result.user);
-        console.log("login page", result);
+        const redirect_url = location?.state?.from || "/";
+        history.replace(redirect_url);
+        // console.log("login page", result);
         // ...
       })
       .catch((error) => {
@@ -113,6 +132,7 @@ const useFirebase = () => {
     googleLogin,
     logOut,
     isLoading,
+    setIsLoading,
   };
 };
 

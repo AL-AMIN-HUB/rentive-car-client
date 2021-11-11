@@ -22,9 +22,9 @@ const Footer = () => {
                 </Typography>
                 <i className="fab fa-facebook-f footer-icon"></i>
 
-                <i class="fab fa-twitter footer-icon"></i>
-                <i class="fab fa-instagram footer-icon"></i>
-                <i class="fab fa-linkedin-in footer-icon"></i>
+                <i className="fab fa-twitter footer-icon"></i>
+                <i className="fab fa-instagram footer-icon"></i>
+                <i className="fab fa-linkedin-in footer-icon"></i>
               </Grid>
               <Grid item xs={4} sm={8} md={3} sx={{ color: "white" }}>
                 <Typography variant="h4">Quick Links</Typography>
