@@ -9,7 +9,7 @@ import Footer from "../Footer/Footer";
 const Explore = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/carExplore")
+    fetch("https://peaceful-mountain-47357.herokuapp.com/carExplore")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

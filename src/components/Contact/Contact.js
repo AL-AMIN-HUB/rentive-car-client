@@ -81,7 +81,7 @@ const Contact = () => {
                 <TextField id="outlined-basic" type="text" sx={{ width: 1, my: 1 }} label="Your Name" variant="outlined" />{" "}
                 <TextField id="outlined-basic" type="text" sx={{ width: 1, my: 1 }} label="Your Email" variant="outlined" />{" "}
                 <TextField id="outlined-basic" type="text" sx={{ width: 1, my: 1 }} label="Phone" variant="outlined" />{" "}
-                <TextareaAutosize minRows={7} placeholder="Your Message" style={{ width: "98%" }} />
+                <TextareaAutosize minRows={3} placeholder="Your Message" style={{ width: "99.5%", border: "1px solid lightgrey" }} />
                 <Button type="submit" sx={{ width: 1, background: "#ffdd00", color: "black", mt: 3 }}>
                   SUBMIT
                 </Button>

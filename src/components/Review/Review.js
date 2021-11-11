@@ -6,7 +6,7 @@ import "./Review.css";
 const Review = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    axios.post("http://localhost:5000/allReview", data).then((res) => {
+    axios.post("https://peaceful-mountain-47357.herokuapp.com/allReview", data).then((res) => {
       if (res?.data?.insertedId) {
         alert("Your review has been successfully");
       }

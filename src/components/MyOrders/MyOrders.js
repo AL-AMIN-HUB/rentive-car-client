@@ -8,7 +8,7 @@ const MyOrders = () => {
   const { user, isLoading, setIsLoading } = useAuth();
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    const url = `http://localhost:5000/allOrders/${user?.email}`;
+    const url = `https://peaceful-mountain-47357.herokuapp.com/allOrders/${user?.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -30,7 +30,7 @@ const MyOrders = () => {
 
   //
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/orders/${id}`, {
+    fetch(`https://peaceful-mountain-47357.herokuapp.com/orders/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -20,7 +20,7 @@ const OrderPlace = () => {
     // console.log(data);
     delete data._id;
     // post order
-    axios.post("http://localhost:5000/orders", data).then((res) => {
+    axios.post("https://peaceful-mountain-47357.herokuapp.com/orders", data).then((res) => {
       if (res.data.insertedId) {
         alert("We have received your order. You can see your order on the dashboard");
       }
@@ -30,7 +30,7 @@ const OrderPlace = () => {
   };
 
   useEffect(() => {
-    const url = `http://localhost:5000/carExplore/${productId}`;
+    const url = `https://peaceful-mountain-47357.herokuapp.com/carExplore/${productId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -40,7 +40,7 @@ const OrderPlace = () => {
   }, [productId, reset]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/allProducts/${productId}`;
+    const url = `https://peaceful-mountain-47357.herokuapp.com/allProducts/${productId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

@@ -34,7 +34,8 @@ const Register = () => {
             padding: "50px 20px",
           }}
         >
-          <h2 className="mb-3">Register New Account</h2>
+          <img style={{ width: "150px" }} src="https://i.ibb.co/PxLTsjB/logo-rentive-fix-white.png" alt="" />
+          <h2 className="mb-5">Register New Account</h2>
           {!isLoading && (
             <form onSubmit={handleSubmit(onSubmit)}>
               <input placeholder="Name" style={{ fontSize: "18px", padding: "10px" }} {...register("name")} type="text" />

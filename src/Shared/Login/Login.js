@@ -38,7 +38,7 @@ const Login = () => {
             padding: "50px 20px",
           }}
         >
-          <img style={{ width: "150px" }} src="https://i.ibb.co/PxLTsjB/logo-rentive-fix-white.png" alt="" />
+          <img style={{ width: "150px", marginBottom: "20px" }} src="https://i.ibb.co/PxLTsjB/logo-rentive-fix-white.png" alt="" />
           {!isLoading && (
             <form style={{ margin: "0 auto" }} onSubmit={handleSubmit(onSubmit)}>
               <input placeholder="Email" style={{ fontSize: "18px", padding: "10px" }} {...register("email")} type="email" />
@@ -54,7 +54,11 @@ const Login = () => {
             <h3>--------- Or Login with --------</h3>
           </div>
           <div style={{ marginTop: "20px" }}>
-            <Button onClick={handleGoogleSignIn} className="btn-custom" style={{ color: "white", padding: "10px 28px", borderRadius: "0" }}>
+            <Button
+              onClick={handleGoogleSignIn}
+              className="btn-custom"
+              style={{ color: "white", padding: "10px 28px", borderRadius: "0", marginBottom: "10px" }}
+            >
               <img style={{ width: "30px", margin: "0 5px" }} src="https://www.bryan-myers.com/images/1x1/google-llc.png" alt="" /> Google
             </Button>
           </div>
