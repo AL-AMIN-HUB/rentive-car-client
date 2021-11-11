@@ -1,6 +1,7 @@
 import React from "react";
 import Menubar from "../../Shared/Menubar/Menubar";
 import ChooseUs from "../ChooseUs/ChooseUs";
+import Footer from "../Footer/Footer";
 import News from "../News/News";
 
 const About = () => {
@@ -9,6 +10,7 @@ const About = () => {
       <Menubar />
       <News />
       <ChooseUs />
+      <Footer />
     </div>
   );
 };

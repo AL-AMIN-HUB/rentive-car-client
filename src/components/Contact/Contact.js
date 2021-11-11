@@ -4,6 +4,7 @@ import TextareaAutosize from "@mui/core/TextareaAutosize";
 import React from "react";
 import "./Contact.css";
 import Menubar from "../../Shared/Menubar/Menubar";
+import Footer from "../Footer/Footer";
 
 const Contact = () => {
   return (
@@ -90,6 +91,7 @@ const Contact = () => {
           </Grid>
         </Container>
       </Box>
+      <Footer />
     </React.Fragment>
   );
 };

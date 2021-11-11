@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 import { Container, Typography } from "@mui/material";
 import Product from "../Product/Product";
 import Menubar from "../../Shared/Menubar/Menubar";
+import Footer from "../Footer/Footer";
 
 const Explore = () => {
   const [products, setProducts] = useState([]);
@@ -32,6 +33,7 @@ const Explore = () => {
           </Grid>
         </Box>
       </Container>
+      <Footer />
     </React.Fragment>
   );
 };
