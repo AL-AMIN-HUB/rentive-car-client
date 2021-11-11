@@ -3,11 +3,13 @@ import { Box } from "@mui/system";
 import TextareaAutosize from "@mui/core/TextareaAutosize";
 import React from "react";
 import "./Contact.css";
+import Menubar from "../../Shared/Menubar/Menubar";
 
 const Contact = () => {
   return (
     <React.Fragment>
-      <Box className="contact" sx={{ my: 5 }}>
+      <Menubar />
+      <Box className="contact" style={{ paddingTop: "100px" }} sx={{ my: 5 }}>
         <Container sx={{ color: "white" }}>
           <Grid container spacing={5}>
             <Grid sx={{ mt: "10%" }} item xs={12} md={7}>

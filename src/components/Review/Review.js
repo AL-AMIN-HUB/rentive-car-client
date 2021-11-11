@@ -24,12 +24,12 @@ const Review = () => {
         <input
           type="number"
           style={{ fontSize: "18px", padding: "10px" }}
-          {...register("rating", { min: 1, max: 5 })}
+          {...register("rating", { min: 1, max: 5 }, { required: true })}
           placeholder="Rating out of 5"
         />
-        <input style={{ fontSize: "18px", padding: "10px" }} {...register("profession")} placeholder="Your Profession" />
-        <input style={{ fontSize: "18px", padding: "10px" }} {...register("img")} placeholder="Your photo url" />
-        <textarea rows="7" style={{ fontSize: "18px", padding: "10px" }} {...register("desc")} placeholder="Comment " />
+        <input style={{ fontSize: "18px", padding: "10px" }} {...register("profession", { required: true })} placeholder="Your Profession" />
+        <input style={{ fontSize: "18px", padding: "10px" }} {...register("img", { required: true })} placeholder="Your photo url" />
+        <textarea rows="7" style={{ fontSize: "18px", padding: "10px" }} {...register("desc", { required: true })} placeholder="Comment " />
         <input style={{ fontSize: "18px", padding: "10px" }} type="submit" />
       </form>
     </div>
