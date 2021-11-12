@@ -22,14 +22,19 @@ const useFirebase = () => {
   const auth = getAuth();
 
   //   sign in with google
-  const googleLogin = (history, location) => {
+  const googleLogin = (location, history) => {
     setIsLoading(true);
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
-        setUser(result.user);
+        const user = result.user;
+
+        //
+        saveUser(user.email, user.displayName, "PUT");
+
+        //
         const redirect_url = location?.state?.from || "/";
-        history.replace(redirect_url);
+        history.push(redirect_url);
         // ...
       })
       .catch((error) => {
@@ -45,10 +50,11 @@ const useFirebase = () => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
-        setUser(result.user);
+        const newUser = { email, displayName: name };
+        setUser(newUser);
         // Signed in
-        history.push("/home");
-
+        // save user to the database
+        saveUser(email, name, "POST");
         //
         updateProfile(auth.currentUser, {
           displayName: name,
@@ -61,6 +67,7 @@ const useFirebase = () => {
             // An error occurred
             // ...
           });
+        history.push("/home");
         // console.log("register page", result);
       })
       .catch((error) => {
@@ -122,6 +129,17 @@ const useFirebase = () => {
       .finally(() => {
         setIsLoading(false);
       });
+  };
+
+  const saveUser = (email, displayName, method) => {
+    const user = { email, displayName };
+    fetch("http://localhost:5000/users", {
+      method: method,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    }).then();
   };
 
   return {

@@ -15,6 +15,10 @@ import Payment from "../Payment/Payment";
 import MyOrders from "../MyOrders/MyOrders";
 import Review from "../Review/Review";
 import useAuth from "../../hooks/useAuth";
+import ManageAllOrders from "../ManageAllOrders/ManageAllOrders";
+import AddProduct from "../AddProduct/AddProduct";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import ManageProducts from "../ManageProducts/ManageProducts";
 
 const drawerWidth = 240;
 const Dashboard = (props) => {
@@ -45,6 +49,7 @@ const Dashboard = (props) => {
       >
         Back Home
       </NavLink>{" "}
+      {/* users */}
       <NavLink
         to={`${url}/payment`}
         activeStyle={{
@@ -96,15 +101,84 @@ const Dashboard = (props) => {
       >
         Review
       </NavLink>
+      {/* admin */}
+      <NavLink
+        to={`${url}/manageAllOrders`}
+        activeStyle={{
+          color: "red",
+        }}
+        style={{
+          textDecoration: "none",
+          background: "#ffdd00",
+          padding: "10px 0",
+          display: "block",
+          fontSize: "18px",
+          color: "black",
+          margin: "5px 0",
+        }}
+      >
+        Manage All Orders
+      </NavLink>
+      <NavLink
+        to={`${url}/addProduct`}
+        activeStyle={{
+          color: "red",
+        }}
+        style={{
+          textDecoration: "none",
+          background: "#ffdd00",
+          padding: "10px 0",
+          display: "block",
+          fontSize: "18px",
+          color: "black",
+          margin: "5px 0",
+        }}
+      >
+        Add Product
+      </NavLink>
+      <NavLink
+        to={`${url}/makeAdmin`}
+        activeStyle={{
+          color: "red",
+        }}
+        style={{
+          textDecoration: "none",
+          background: "#ffdd00",
+          padding: "10px 0",
+          display: "block",
+          fontSize: "18px",
+          color: "black",
+          margin: "5px 0",
+        }}
+      >
+        Make Admin
+      </NavLink>
+      <NavLink
+        to={`${url}/ManageProducts`}
+        activeStyle={{
+          color: "red",
+        }}
+        style={{
+          textDecoration: "none",
+          background: "#ffdd00",
+          padding: "10px 0",
+          display: "block",
+          fontSize: "18px",
+          color: "black",
+          margin: "5px 0",
+        }}
+      >
+        Manage Products
+      </NavLink>
       <NavLink style={{ textDecoration: "none" }} to="/login">
         <Button
           onClick={logOut}
           style={{
-            background: "#ffdd00",
+            background: "#0cebeb",
             padding: "10px 0",
             width: "100%",
             fontSize: "18px",
-            color: "black",
+            color: "white",
             margin: "5px 0",
           }}
           variant="inherit"
@@ -172,6 +246,11 @@ const Dashboard = (props) => {
           <Route path={`${path}/payment`} component={Payment} />
           <Route path={`${path}/myOrders`} component={MyOrders} />
           <Route path={`${path}/review`} component={Review} />
+          {/*  */}
+          <Route path={`${path}/manageAllOrders`} component={ManageAllOrders} />
+          <Route path={`${path}/addProduct`} component={AddProduct} />
+          <Route path={`${path}/makeAdmin`} component={MakeAdmin} />
+          <Route path={`${path}/ManageProducts`} component={ManageProducts} />
         </Switch>
       </Box>
     </Box>
