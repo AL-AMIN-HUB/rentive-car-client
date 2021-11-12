@@ -51,57 +51,61 @@ const Dashboard = (props) => {
         {user.displayName}
       </NavLink>{" "}
       {/* users */}
-      <NavLink
-        to={`${url}/payment`}
-        activeStyle={{
-          color: "red",
-        }}
-        style={{
-          textDecoration: "none",
-          background: "#ffdd00",
-          padding: "10px 0",
-          display: "block",
-          fontSize: "18px",
-          color: "black",
-          margin: "5px 0",
-        }}
-      >
-        Pay
-      </NavLink>{" "}
-      <NavLink
-        to={`${url}/myOrders`}
-        activeStyle={{
-          color: "red",
-        }}
-        style={{
-          textDecoration: "none",
-          background: "#ffdd00",
-          padding: "10px 0",
-          display: "block",
-          fontSize: "18px",
-          color: "black",
-          margin: "5px 0",
-        }}
-      >
-        My Orders
-      </NavLink>{" "}
-      <NavLink
-        to={`${url}/review`}
-        activeStyle={{
-          color: "red",
-        }}
-        style={{
-          textDecoration: "none",
-          background: "#ffdd00",
-          padding: "10px 0",
-          display: "block",
-          fontSize: "18px",
-          color: "black",
-          margin: "5px 0",
-        }}
-      >
-        Review
-      </NavLink>
+      {!admin && (
+        <>
+          <NavLink
+            to={`${url}/payment`}
+            activeStyle={{
+              color: "red",
+            }}
+            style={{
+              textDecoration: "none",
+              background: "#ffdd00",
+              padding: "10px 0",
+              display: "block",
+              fontSize: "18px",
+              color: "black",
+              margin: "5px 0",
+            }}
+          >
+            Pay
+          </NavLink>{" "}
+          <NavLink
+            to={`${url}/myOrders`}
+            activeStyle={{
+              color: "red",
+            }}
+            style={{
+              textDecoration: "none",
+              background: "#ffdd00",
+              padding: "10px 0",
+              display: "block",
+              fontSize: "18px",
+              color: "black",
+              margin: "5px 0",
+            }}
+          >
+            My Orders
+          </NavLink>{" "}
+          <NavLink
+            to={`${url}/review`}
+            activeStyle={{
+              color: "red",
+            }}
+            style={{
+              textDecoration: "none",
+              background: "#ffdd00",
+              padding: "10px 0",
+              display: "block",
+              fontSize: "18px",
+              color: "black",
+              margin: "5px 0",
+            }}
+          >
+            Review
+          </NavLink>
+        </>
+      )}
       {/* admin */}
       {admin && (
         <>
@@ -244,27 +248,41 @@ const Dashboard = (props) => {
       </Box>
       <Box component="main" sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}>
         <Toolbar />
-        <Switch>
-          <Route exact path={path}>
-            <MyOrders />
-          </Route>
-          <Route path={`${path}/payment`} component={Payment} />
-          <Route path={`${path}/myOrders`} component={MyOrders} />
-          <Route path={`${path}/review`} component={Review} />
-          {/*  */}
-          <AdminRoute path={`${path}/manageAllOrders`}>
-            <ManageAllOrders></ManageAllOrders>
-          </AdminRoute>
-          <AdminRoute path={`${path}/addProduct`}>
-            <AddProduct></AddProduct>
-          </AdminRoute>
-          <AdminRoute path={`${path}/makeAdmin`}>
-            <MakeAdmin></MakeAdmin>
-          </AdminRoute>
-          <AdminRoute path={`${path}/ManageProducts`}>
-            <ManageProducts></ManageProducts>
-          </AdminRoute>
-        </Switch>
+        {!admin && (
+          <>
+            <Switch>
+              <Route exact path={path}>
+                <MyOrders />
+              </Route>
+              <Route path={`${path}/payment`} component={Payment} />
+              <Route path={`${path}/myOrders`} component={MyOrders} />
+              <Route path={`${path}/review`} component={Review} />
+            </Switch>
+          </>
+        )}
+        {/*  */}
+
+        {admin && (
+          <>
+            <Switch>
+              <Route exact path={path}>
+                <ManageAllOrders />
+              </Route>
+              <AdminRoute path={`${path}/manageAllOrders`}>
+                <ManageAllOrders></ManageAllOrders>
+              </AdminRoute>
+              <AdminRoute path={`${path}/addProduct`}>
+                <AddProduct></AddProduct>
+              </AdminRoute>
+              <AdminRoute path={`${path}/makeAdmin`}>
+                <MakeAdmin></MakeAdmin>
+              </AdminRoute>
+              <AdminRoute path={`${path}/ManageProducts`}>
+                <ManageProducts></ManageProducts>
+              </AdminRoute>
+            </Switch>
+          </>
+        )}
       </Box>
     </Box>
   );
