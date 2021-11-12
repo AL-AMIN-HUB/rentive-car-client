@@ -18,6 +18,7 @@ const useFirebase = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
+  const [admin, setAdmin] = useState(false);
 
   const auth = getAuth();
 
@@ -116,6 +117,15 @@ const useFirebase = () => {
     return () => unsubscribed;
   }, [auth]);
 
+  //
+  useEffect(() => {
+    fetch(`https://peaceful-mountain-47357.herokuapp.com/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAdmin(data.admin);
+      });
+  }, [user?.email]);
+
   //   signOut
   const logOut = () => {
     setIsLoading(true);
@@ -133,7 +143,7 @@ const useFirebase = () => {
 
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("http://localhost:5000/users", {
+    fetch("https://peaceful-mountain-47357.herokuapp.com/users", {
       method: method,
       headers: {
         "content-type": "application/json",
@@ -143,6 +153,7 @@ const useFirebase = () => {
   };
 
   return {
+    admin,
     user,
     error,
     registerUser,
