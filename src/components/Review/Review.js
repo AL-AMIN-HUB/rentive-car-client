@@ -1,32 +1,34 @@
 import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router";
+import useAuth from "../../hooks/useAuth";
 import "./Review.css";
 
 const Review = () => {
+  const history = useHistory();
+  const url = "/review";
+  const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
+    delete data._id;
+
     axios.post("https://peaceful-mountain-47357.herokuapp.com/allReview", data).then((res) => {
       if (res?.data?.insertedId) {
-        alert("Your review has been successfully");
+        alert("Congratulations! Your review has been successfully..Let's take a look at everyone's reviews");
+        history.push(url);
       }
     });
     reset();
+    reset(data);
   };
   return (
     <div className="review" style={{ textAlign: "center" }}>
       <h1>Review Our Products</h1>
       <form style={{ margin: "0 auto" }} onSubmit={handleSubmit(onSubmit)}>
-        <input style={{ fontSize: "18px", padding: "10px" }} {...register("name")} />
-        <input style={{ fontSize: "18px", padding: "10px" }} {...register("email")} />
-        {/* <input disabled style={{ fontSize: "18px", padding: "10px" }} {...register("name")} defaultValue="name" />
-        <input disabled style={{ fontSize: "18px", padding: "10px" }} {...register("email")} defaultValue="email" /> */}
-        <input
-          type="tel"
-          style={{ fontSize: "18px", padding: "10px" }}
-          {...register("rating", { min: 1, max: 5 }, { required: true })}
-          placeholder="Rating out of 5"
-        />
+        <input style={{ fontSize: "18px", padding: "10px" }} defaultValue={user?.displayName} type="text" {...register("name")} />
+        <input style={{ fontSize: "18px", padding: "10px" }} defaultValue={user?.email} type="email" {...register("email")} />
+        <input type="tel" style={{ fontSize: "18px", padding: "10px" }} {...register("rating", { min: 1, max: 5 })} placeholder="Rating out of 5" />
         <input style={{ fontSize: "18px", padding: "10px" }} {...register("profession", { required: true })} placeholder="Your Profession" />
         <input style={{ fontSize: "18px", padding: "10px" }} {...register("img", { required: true })} placeholder="Your photo url" />
         <textarea

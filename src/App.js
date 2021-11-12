@@ -11,6 +11,7 @@ import Contact from "./components/Contact/Contact";
 import About from "./components/About/About";
 import OrderPlace from "./components/OrderPlace/OrderPlace";
 import PrivateRoute from "./Shared/PrivateRoute/PrivateRoute";
+import ShowAllReview from "./components/ShowAllReview/ShowAllReview";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <PrivateRoute path="/orderPlace/:productId">
               <OrderPlace></OrderPlace>
             </PrivateRoute>
+            <Route exact path="/review" component={ShowAllReview} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/about" component={About} />
             <Route path="/dashboard" component={Dashboard} />

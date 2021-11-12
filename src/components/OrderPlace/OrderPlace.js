@@ -80,7 +80,7 @@ const OrderPlace = () => {
                   <input defaultValue={product.price} type="number" {...register("price")} />
                   <input defaultValue={product.img} {...register("img")} />
                   <input placeholder="Phone Number" type="text" {...register("phone", { required: true })} />{" "}
-                  <textarea placeholder="Your Address" type="text" {...register("address", { required: true })} />
+                  <textarea style={{ width: "99.5%" }} placeholder="Your Address" type="text" {...register("address", { required: true })} />
                   <input className="inputSubmit" style={{ border: "none", background: "#EC5990", color: "white" }} value="Order Now" type="submit" />
                 </form>
               </Box>

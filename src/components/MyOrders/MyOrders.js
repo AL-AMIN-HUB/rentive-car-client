@@ -8,11 +8,11 @@ const MyOrders = () => {
   const { user, isLoading, setIsLoading } = useAuth();
   const [orders, setOrders] = useState([]);
   useEffect(() => {
+    setIsLoading(true);
     const url = `https://peaceful-mountain-47357.herokuapp.com/allOrders/${user?.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setIsLoading(true);
         setOrders(data);
       })
       .finally(() => {
