@@ -1,6 +1,7 @@
 import { Card, CardContent, CardMedia, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
+import Rating from "react-rating";
 
 const UiReview = () => {
   const [reviews, setReviews] = useState([]);
@@ -22,9 +23,13 @@ const UiReview = () => {
                       <q>{review.desc}</q>
                     </Typography>
                     <Typography variant="h5" component="div">
-                      {review.rating} <i style={{ color: "#ffdd00" }} className="fas fa-star"></i>
+                      <Rating
+                        initialRating={review.rating}
+                        emptySymbol="far fa-star rating-color"
+                        fullSymbol="fas fa-star rating-color"
+                        readonly
+                      ></Rating>
                     </Typography>
-
                     <Box sx={{ display: "flex", mt: 2 }}>
                       <Box sx={{ mx: 3 }}>
                         <CardMedia component="img" style={{ width: "70px", height: "70px", borderRadius: "50%" }} image={review.img} alt="" />

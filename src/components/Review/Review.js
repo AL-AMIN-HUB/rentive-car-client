@@ -22,7 +22,7 @@ const Review = () => {
         {/* <input disabled style={{ fontSize: "18px", padding: "10px" }} {...register("name")} defaultValue="name" />
         <input disabled style={{ fontSize: "18px", padding: "10px" }} {...register("email")} defaultValue="email" /> */}
         <input
-          type="number"
+          type="tel"
           style={{ fontSize: "18px", padding: "10px" }}
           {...register("rating", { min: 1, max: 5 }, { required: true })}
           placeholder="Rating out of 5"

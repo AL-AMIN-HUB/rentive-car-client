@@ -19,6 +19,9 @@
   font-size: 18px;
   cursor: pointer;
 }
+.rating-color {
+  color: #ffdd00;
+}
 
 @media only screen and (max-width: 768px) {
   .choose-box {
