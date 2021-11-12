@@ -5,14 +5,30 @@ import { Container, Typography } from "@mui/material";
 import Product from "../Product/Product";
 import Menubar from "../../Shared/Menubar/Menubar";
 import Footer from "../Footer/Footer";
+import useAuth from "../../hooks/useAuth";
+import Stack from "@mui/material/Stack";
+import LinearProgress from "@mui/material/LinearProgress";
 
 const Explore = () => {
+  const { isLoading, setIsLoading } = useAuth();
   const [products, setProducts] = useState([]);
   useEffect(() => {
+    setIsLoading(true);
     fetch("https://peaceful-mountain-47357.herokuapp.com/carExplore")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+      .then((data) => setProducts(data))
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, [setIsLoading]);
+
+  if (isLoading) {
+    return (
+      <Stack sx={{ width: "100%", color: "grey.500" }} spacing={2}>
+        <LinearProgress color="secondary" />
+      </Stack>
+    );
+  }
   return (
     <React.Fragment>
       <Menubar />

@@ -4,14 +4,31 @@ import Grid from "@mui/material/Grid";
 import { Button, Container, Typography } from "@mui/material";
 import Product from "../Product/Product";
 import { Link } from "react-router-dom";
+import Stack from "@mui/material/Stack";
+import LinearProgress from "@mui/material/LinearProgress";
+import useAuth from "../../hooks/useAuth";
 
 const Services = () => {
+  const { isLoading, setIsLoading } = useAuth();
   const [products, setProducts] = useState([]);
   useEffect(() => {
+    setIsLoading(true);
     fetch("https://peaceful-mountain-47357.herokuapp.com/allProducts")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+      .then((data) => setProducts(data))
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, [setIsLoading]);
+
+  if (isLoading) {
+    return (
+      <Stack sx={{ width: "100%", color: "grey.500" }} spacing={2}>
+        <LinearProgress color="secondary" />
+      </Stack>
+    );
+  }
+
   return (
     <Container sx={{ py: 5 }}>
       <Typography variant="p" sx={{ fontWeight: "bold", mt: 5, color: "orange" }} component="div">
