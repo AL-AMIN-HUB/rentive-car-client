@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import "./OrderPlace.css";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import swal from "sweetalert";
 
 const OrderPlace = () => {
   const { productId } = useParams();
@@ -22,7 +23,12 @@ const OrderPlace = () => {
     // post order
     axios.post("https://peaceful-mountain-47357.herokuapp.com/orders", data).then((res) => {
       if (res.data.insertedId) {
-        alert("We have received your order. You can see your order on the dashboard");
+        swal({
+          title: "Good Job!",
+          text: "We have received your order. You can see your order on the dashboard",
+          icon: "success",
+          button: "Done",
+        });
       }
       reset();
       history.push(url);

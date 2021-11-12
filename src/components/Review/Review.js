@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
+import swal from "sweetalert";
 import useAuth from "../../hooks/useAuth";
 import "./Review.css";
 
@@ -15,7 +16,12 @@ const Review = () => {
 
     axios.post("https://peaceful-mountain-47357.herokuapp.com/allReview", data).then((res) => {
       if (res?.data?.insertedId) {
-        alert("Congratulations! Your review has been successfully..Let's take a look at everyone's reviews");
+        swal({
+          title: "Congratulations!",
+          text: "Your review has been successfully..Let's take a look at everyone's reviews",
+          icon: "success",
+          button: "Done",
+        });
         history.push(url);
       }
     });

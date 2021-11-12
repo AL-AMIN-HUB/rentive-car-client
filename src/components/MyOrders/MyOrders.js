@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import Stack from "@mui/material/Stack";
 import LinearProgress from "@mui/material/LinearProgress";
+import swal from "sweetalert";
 
 const MyOrders = () => {
   const { user, isLoading, setIsLoading } = useAuth();
@@ -36,7 +37,7 @@ const MyOrders = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-          alert("Successfully delete Your Order");
+          swal("Successfully delete Your Order!");
         }
         const remaining = orders.filter((order) => order._id !== id);
         setOrders(remaining);
@@ -69,7 +70,7 @@ const MyOrders = () => {
               <td>${order.price}</td>
               <td>pending</td>
               <td style={{ width: "100px" }}>
-                <Button onClick={() => handleDelete(order._id)} variant="contained">
+                <Button color="success" onClick={() => handleDelete(order._id)} variant="contained">
                   Delete
                 </Button>
               </td>
