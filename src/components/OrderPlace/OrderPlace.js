@@ -77,7 +77,7 @@ const OrderPlace = () => {
           <Grid item md={4} xs={12}>
             <Box sx={{ background: "#F0F0F0", p: 3 }}>
               <Typography sx={{ fontWeight: "500", mb: 5 }} variant="h4">
-                ONLINE ORDER
+                SHIPPING FORM
               </Typography>
               <Box className="orderPlaceForm">
                 <form style={{ margin: "0 auto" }} onSubmit={handleSubmit(onSubmit)}>

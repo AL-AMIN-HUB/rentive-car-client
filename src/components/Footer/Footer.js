@@ -77,7 +77,9 @@ const Footer = () => {
                 </Typography>
                 <Box>
                   <TextField id="outlined-basic" sx={{ background: "white" }} variant="outlined" size="small" placeholder="Your Email" />{" "}
-                  <Button sx={{ background: "#ffdd00", color: "black", mt: 2, py: 1, px: 3, display: "block" }}>SUBSCRIBE</Button>
+                  <Button style={{ background: "#ffdd00" }} sx={{ color: "black", mt: 2, py: 1, px: 3, display: "block" }}>
+                    SUBSCRIBE
+                  </Button>
                 </Box>
               </Grid>
             </Grid>

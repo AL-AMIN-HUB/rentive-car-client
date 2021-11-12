@@ -5,6 +5,7 @@
 }
 .App {
   margin-top: 50px;
+  cursor: pointer;
 }
 
 .choose-box {

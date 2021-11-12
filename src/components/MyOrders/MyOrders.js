@@ -37,7 +37,7 @@ const MyOrders = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-          swal("Successfully delete Your Order!");
+          swal("Successfully delete Your Order!. We are obliged to delete the order at your request. Thanks again");
         }
         const remaining = orders.filter((order) => order._id !== id);
         setOrders(remaining);
