@@ -76,7 +76,7 @@ const ManageAllOrders = () => {
 
   return (
     <div className="text-center">
-      <h2>AllOrders Found: {allOrders.length} </h2>
+      <h2>All Orders Found: {allOrders.length} </h2>
       <table className="table">
         <thead className="text-center">
           <tr>
