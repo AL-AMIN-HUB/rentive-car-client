@@ -33,7 +33,6 @@ const Login = () => {
           style={{
             margin: "50px 0 auto",
             display: "inline-block",
-            // border: "1px solid red",
             boxShadow: "inset 1px 1px 10px rgb(255,255,255,0.2)",
             padding: "50px 20px",
           }}
