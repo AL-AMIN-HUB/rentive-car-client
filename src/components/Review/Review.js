@@ -41,7 +41,7 @@ const Review = () => {
           rows="7"
           style={{ fontSize: "18px", padding: "10px", border: "1px solid grey" }}
           {...register("desc", { required: true })}
-          placeholder="Comment "
+          placeholder="What's your experience ?"
         />
         <input value="Add Review" style={{ fontSize: "18px", padding: "10px", cursor: "pointer" }} type="submit" />
       </form>
