@@ -13,6 +13,7 @@ import OrderPlace from "./components/OrderPlace/OrderPlace";
 import PrivateRoute from "./Shared/PrivateRoute/PrivateRoute";
 import ShowAllReview from "./components/ShowAllReview/ShowAllReview";
 import UpdateProduct from "./components/UpdateProduct/UpdateProduct";
+import UpdateStatus from "./components/UpdateStatus/UpdateStatus";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
             </PrivateRoute>
             <Route path="/updateProduct/:Id">
               <UpdateProduct />
+            </Route>{" "}
+            <Route path="/updateStatus/:Id">
+              <UpdateStatus />
             </Route>
             <Route exact path="/review" component={ShowAllReview} />
             <Route exact path="/contact" component={Contact} />

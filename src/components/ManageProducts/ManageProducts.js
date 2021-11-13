@@ -1,34 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
-// import useAuth from "../../hooks/useAuth";
-// import Stack from "@mui/material/Stack";
-// import LinearProgress from "@mui/material/LinearProgress";
 import swal from "sweetalert";
 import { Link } from "react-router-dom";
 
 const ManageProducts = () => {
-  // const { user, isLoading, setIsLoading } = useAuth();
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    // setIsLoading(true);
     const url = "https://peaceful-mountain-47357.herokuapp.com/carExplore";
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
       })
-      .finally(() => {
-        // setIsLoading(false);
-      });
+      .finally(() => {});
   }, []);
-
-  /* if (isLoading) {
-    return (
-      <Stack sx={{ width: "100%", color: "grey.500" }} spacing={2}>
-        <LinearProgress color="secondary" />
-      </Stack>
-    );
-  } */
 
   //
   const handleDelete = (id) => {

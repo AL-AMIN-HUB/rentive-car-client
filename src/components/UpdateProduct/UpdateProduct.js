@@ -17,7 +17,7 @@ const UpdateProduct = () => {
     // console.log(data);
     delete data._id;
     // update order
-    fetch(`http://localhost:5000/updateProduct/${Id}`, {
+    fetch(`https://peaceful-mountain-47357.herokuapp.com/updateProduct/${Id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -51,7 +51,7 @@ const UpdateProduct = () => {
   return (
     <React.Fragment>
       <Menubar />
-      <Container sx={{ mt: 5 }}>
+      <Container sx={{ pt: 5 }}>
         <Box sx={{ background: "#F0F0F0", px: 3, py: 5, borderRadius: 3 }} className="orderPlaceForm">
           <h2 style={{ textAlign: "center", marginBottom: "40px" }}>Update This Product</h2>
           <form style={{ margin: "0 auto", width: "400px" }} onSubmit={handleSubmit(onSubmit)}>

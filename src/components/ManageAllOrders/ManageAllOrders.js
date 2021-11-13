@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
-/*  import useAuth from "../../hooks/useAuth";
-import Stack from "@mui/material/Stack";
-import LinearProgress from "@mui/material/LinearProgress"; */
 import swal from "sweetalert";
+import { Link } from "react-router-dom";
 
 const ManageAllOrders = () => {
-  /*   const [updateStatus, setUpdateStatus] = useState("");
-  const [orderId, setOrderId] = useState(""); */
-  // const { user } = useAuth();
   const [allOrders, setAllOrders] = useState([]);
 
   useEffect(() => {
@@ -18,15 +13,6 @@ const ManageAllOrders = () => {
         setAllOrders(data);
       });
   }, []);
-
-  /* if (isLoading) {
-    return (
-      <Stack sx={{ width: "100%", color: "grey.500" }} spacing={2}>
-        <LinearProgress color="secondary" />
-      </Stack>
-    );
-  } */
-
   //
   const handleDelete = (id) => {
     fetch(`https://peaceful-mountain-47357.herokuapp.com/orders/${id}`, {
@@ -59,35 +45,6 @@ const ManageAllOrders = () => {
       });
   };
 
-  const handleOrderId = (id) => {
-    // setOrderId(id);
-    // console.log(id);
-  };
-  //
-  const handleOnSubmit = (e) => {
-    // setUpdateStatus(e.target?.status?.value);
-    /* fetch("http://localhost:5000/update/status", {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.matchedCount) {
-          swal({
-            title: "Thank You!",
-            text: "Status update is complete",
-            icon: "success",
-            button: "Done",
-          });
-        }
-      }); */
-
-    e.preventDefault();
-  };
-
   return (
     <div className="text-center">
       <h2>All Orders Found: {allOrders.length} </h2>
@@ -116,16 +73,12 @@ const ManageAllOrders = () => {
               <td>{order.email}</td>
               <td>${order.price}</td>
               <td>
-                <form onSubmit={handleOnSubmit} action="#">
-                  <select onClick={() => handleOrderId(order?._id)} name="status" id="">
-                    <option value="Pending">Pending</option>
-                    <option value="Shipping">Shipped</option>
-                    <option value="Delivered">Delivered</option>
-                  </select>
+                {order.status ? order.status : "Pending..."}
+                <Link style={{ textDecoration: "none" }} to={`/updateStatus/${order._id}`}>
                   <Button className="btn-custom" sx={{ px: 2, py: 1, m: 1, color: "white" }} type="submit">
                     Update
                   </Button>
-                </form>
+                </Link>
               </td>
               <td style={{ width: "100px" }}>
                 <Button color="success" onClick={() => handleDelete(order._id)} variant="contained">

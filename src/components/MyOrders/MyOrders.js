@@ -85,7 +85,7 @@ const MyOrders = () => {
               </td>
               <td>{order.name}</td>
               <td>${order.price}</td>
-              <td>pending</td>
+              <td>{order.status ? order.status : "pending..."}</td>
               <td style={{ width: "100px" }}>
                 <Button color="success" onClick={() => handleDelete(order._id)} variant="contained">
                   Delete
