@@ -36,11 +36,28 @@ const MyOrders = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.deletedCount) {
-          swal("Successfully delete Your Order!. We are obliged to delete the order at your request. Thanks again");
+        if (data.deletedCount === 1) {
+          swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          }).then((willDelete) => {
+            if (willDelete) {
+              swal(
+                "Poof! Your imaginary file has been deleted!. Successfully delete Your Order. We are obliged to delete the order at your request. Thanks again",
+                {
+                  icon: "success",
+                }
+              );
+              const remaining = orders.filter((order) => order._id !== id);
+              setOrders(remaining);
+            } else {
+              swal("Your imaginary file is safe!");
+            }
+          });
         }
-        const remaining = orders.filter((order) => order._id !== id);
-        setOrders(remaining);
       });
   };
   return (

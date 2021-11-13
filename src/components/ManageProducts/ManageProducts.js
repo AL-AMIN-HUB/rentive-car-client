@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 // import Stack from "@mui/material/Stack";
 // import LinearProgress from "@mui/material/LinearProgress";
 import swal from "sweetalert";
+import { Link } from "react-router-dom";
 
 const ManageProducts = () => {
   // const { user, isLoading, setIsLoading } = useAuth();
@@ -53,7 +54,7 @@ const ManageProducts = () => {
             <th scope="col">Car</th>
             <th scope="col">Name</th>
             <th scope="col">Price</th>
-            <th scope="col">Status</th>
+            <th scope="col">Description</th>
             <th scope="col">Manage Order</th>
           </tr>
         </thead>
@@ -68,8 +69,13 @@ const ManageProducts = () => {
               </td>
               <td>{product.name}</td>
               <td>${product.price}</td>
-              <td>pending</td>
-              <td style={{ width: "100px" }}>
+              <td style={{ width: "500px" }}>{product.desc.slice(0, 150)}......</td>
+              <td style={{ width: "200px" }}>
+                <Link to={`/updateProduct/${product._id}`}>
+                  <Button sx={{ mx: 2 }} variant="contained">
+                    Edit
+                  </Button>
+                </Link>
                 <Button color="success" onClick={() => handleDelete(product._id)} variant="contained">
                   Delete
                 </Button>

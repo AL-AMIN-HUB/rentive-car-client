@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
-// import useAuth from "../../hooks/useAuth";
-// import Stack from "@mui/material/Stack";
-// import LinearProgress from "@mui/material/LinearProgress";
+/*  import useAuth from "../../hooks/useAuth";
+import Stack from "@mui/material/Stack";
+import LinearProgress from "@mui/material/LinearProgress"; */
 import swal from "sweetalert";
 
 const ManageAllOrders = () => {
   /*   const [updateStatus, setUpdateStatus] = useState("");
-  const [orderId, setOrderId] = useState("");
-  const { user, isLoading, setIsLoading } = useAuth(); */
+  const [orderId, setOrderId] = useState(""); */
+  // const { user } = useAuth();
   const [allOrders, setAllOrders] = useState([]);
+
   useEffect(() => {
-    // setIsLoading(true);
     fetch("https://peaceful-mountain-47357.herokuapp.com/allOrdersManage")
       .then((res) => res.json())
       .then((data) => {
         setAllOrders(data);
-      })
-      .finally(() => {
-        // setIsLoading(false);
       });
   }, []);
 
@@ -37,11 +34,28 @@ const ManageAllOrders = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.deletedCount) {
-          swal("Successfully delete Your Order!. We are obliged to delete the order at your request. Thanks again");
+        if (data.deletedCount === 1) {
+          swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          }).then((willDelete) => {
+            if (willDelete) {
+              swal(
+                "Poof! Your imaginary file has been deleted!. Successfully delete Your Order. We are obliged to delete the order at your request. Thanks again",
+                {
+                  icon: "success",
+                }
+              );
+              const remaining = allOrders.filter((order) => order._id !== id);
+              setAllOrders(remaining);
+            } else {
+              swal("Your imaginary file is safe!");
+            }
+          });
         }
-        const remaining = allOrders.filter((order) => order._id !== id);
-        setAllOrders(remaining);
       });
   };
 
@@ -105,7 +119,7 @@ const ManageAllOrders = () => {
                 <form onSubmit={handleOnSubmit} action="#">
                   <select onClick={() => handleOrderId(order?._id)} name="status" id="">
                     <option value="Pending">Pending</option>
-                    <option value="Shipping">Shipping</option>
+                    <option value="Shipping">Shipped</option>
                     <option value="Delivered">Delivered</option>
                   </select>
                   <Button className="btn-custom" sx={{ px: 2, py: 1, m: 1, color: "white" }} type="submit">

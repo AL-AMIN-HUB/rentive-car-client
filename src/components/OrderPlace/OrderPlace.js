@@ -23,16 +23,17 @@ const OrderPlace = () => {
     // post order
     axios.post("https://peaceful-mountain-47357.herokuapp.com/orders", data).then((res) => {
       if (res.data.insertedId) {
+        alert("Success! We have successfully inserted order");
         swal({
           title: "Good Job!",
           text: "We have received your order. You can see your order on the dashboard",
           icon: "success",
           button: "Done",
         });
+        history.push(url);
       }
-      reset();
-      history.push(url);
     });
+    reset();
   };
 
   useEffect(() => {

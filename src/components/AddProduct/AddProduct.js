@@ -24,7 +24,7 @@ const AddProduct = () => {
   };
   return (
     <div className="review" style={{ textAlign: "center" }}>
-      <h1 style={{ marginBottom: "20px" }}>Add New Product</h1>
+      <h1 style={{ marginBottom: "20px" }}>Add New Collection</h1>
       <form style={{ margin: "0 auto" }} onSubmit={handleSubmit(onSubmit)}>
         <input placeholder="Product Code" style={{ fontSize: "18px", padding: "10px" }} type="text" {...register("key")} />
 
