@@ -1,6 +1,9 @@
 import { Container, Grid, Paper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import Aos from "aos";
+
+Aos.init({ duration: "2000" });
 
 const Works = () => {
   return (
@@ -16,7 +19,7 @@ const Works = () => {
         </Box>
         <Box sx={{ flexGrow: 1, mt: 5 }}>
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-            <Grid item xs={4} sm={4} md={3}>
+            <Grid data-aos="fade-right" item xs={4} sm={4} md={3}>
               <Paper elevation={0} />
               <Box style={{ fontSize: "100px", textAlign: "center" }}>
                 <i style={{ padding: "20px", border: "2px solid #FFDD00", color: "grey", marginBottom: "10px" }} className="fas fa-car"></i>
@@ -30,7 +33,7 @@ const Works = () => {
               </Typography>
               <Paper />
             </Grid>
-            <Grid item xs={4} sm={4} md={3}>
+            <Grid data-aos="fade-down" item xs={4} sm={4} md={3}>
               <Paper elevation={0} />
               <Box style={{ fontSize: "100px", textAlign: "center" }}>
                 <i
@@ -47,7 +50,7 @@ const Works = () => {
               </Typography>
               <Paper />
             </Grid>
-            <Grid item xs={4} sm={4} md={3}>
+            <Grid data-aos="fade-up" item xs={4} sm={4} md={3}>
               <Paper elevation={0} />
               <Box style={{ fontSize: "100px", textAlign: "center" }}>
                 <i
@@ -64,7 +67,7 @@ const Works = () => {
               </Typography>
               <Paper />
             </Grid>
-            <Grid item xs={4} sm={4} md={3}>
+            <Grid data-aos="fade-left" item xs={4} sm={4} md={3}>
               <Paper elevation={0} />
               <Box style={{ fontSize: "100px", textAlign: "center" }}>
                 <i

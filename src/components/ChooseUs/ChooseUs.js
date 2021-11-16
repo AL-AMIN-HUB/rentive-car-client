@@ -1,6 +1,7 @@
 import { Button, CardMedia, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import CountUp from "react-countup";
 import "./ChooseUs.css";
 
 const ChooseUs = () => {
@@ -36,16 +37,18 @@ const ChooseUs = () => {
             </Box>
             <Box sx={{ display: "flex", m: 3, textAlign: "center", justifyContent: "space-around", alignItems: "center" }}>
               <Box>
-                <Typography variant="h3" sx={{ fontWeight: "bold" }}>
-                  27<sup style={{ color: "#FFDD00" }}>+</sup>
+                <Typography variant="h2" sx={{ fontWeight: "bold" }}>
+                  <CountUp duration={4} start={1} end={27} />
+                  <sup style={{ color: "#FFDD00" }}>+</sup>
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Years of Experience
                 </Typography>
               </Box>
               <Box>
-                <Typography variant="h3" sx={{ fontWeight: "bold" }}>
-                  548<sup style={{ color: "#FFDD00" }}>+</sup>
+                <Typography variant="h2" sx={{ fontWeight: "bold" }}>
+                  <CountUp duration={4} start={1} end={548} />
+                  <sup style={{ color: "#FFDD00" }}>+</sup>
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Total Sales Completed

@@ -4,6 +4,7 @@ import TextareaAutosize from "@mui/core/TextareaAutosize";
 import React from "react";
 import "./Contact.css";
 import Menubar from "../../Shared/Menubar/Menubar";
+import TypewriterComponent from "typewriter-effect";
 
 const Contact = () => {
   return (
@@ -16,7 +17,11 @@ const Contact = () => {
               <Box>
                 <Box>
                   <Typography sx={{ color: "#ffdd00", my: 2 }} variant="body2">
-                    NEED A CAR RENTAL?
+                    <TypewriterComponent
+                      onInit={(typewriter) => {
+                        typewriter.typeString("  NEED A CAR RENTAL?").pauseFor(1000).deleteAll().typeString("  NEED A CAR RENTAL?").start();
+                      }}
+                    />
                   </Typography>{" "}
                   <Typography sx={{ fontWeight: "bold", mb: 3 }} variant="h3">
                     Don't Hesitate To Contact Us

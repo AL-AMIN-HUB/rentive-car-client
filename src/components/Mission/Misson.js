@@ -1,6 +1,10 @@
 import { CardMedia, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import Aos from "aos";
+Aos.init({
+  duration: "2000",
+});
 
 const Misson = () => {
   return (
@@ -9,7 +13,7 @@ const Misson = () => {
         <Container>
           <Grid style={{ background: "white" }} sx={{ p: 3, boxShadow: "1px 2px 10px rgba(0,0,0,0.1)" }} container spacing={2}>
             <Grid item xs={12} md={6}>
-              <Box>
+              <Box data-aos="fade-right">
                 <Typography variant="h6" color="orange" sx={{ pt: 5 }}>
                   What we do
                 </Typography>
@@ -24,7 +28,7 @@ const Misson = () => {
             </Grid>
             <Grid item xs={12} md={6}>
               {" "}
-              <Box>
+              <Box data-aos="fade-left">
                 <CardMedia
                   component="img"
                   sx={{ width: "100%", background: "yellow" }}

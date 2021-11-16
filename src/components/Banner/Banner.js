@@ -2,6 +2,7 @@ import { Button, Container, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { Link } from "react-router-dom";
+import Typewriter from "typewriter-effect";
 import "./Bannar.css";
 
 const Banner = () => {
@@ -9,7 +10,11 @@ const Banner = () => {
     <Box className="banner" sx={{ color: "white", display: "flex", alignItems: "center" }}>
       <Container>
         <Typography variant="h6" color="orange" sx={{ pt: 5 }}>
-          THE ALL NEW
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter.typeString("THE ALL NEW").pauseFor(1000).deleteAll().typeString("THE ALL NEW").start();
+            }}
+          />
         </Typography>
         <Typography variant="h2" sx={{ fontWeight: "bold", mb: 5 }}>
           Easy For <br /> You To Rent A Car
