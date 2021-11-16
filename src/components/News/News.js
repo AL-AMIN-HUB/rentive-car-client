@@ -25,12 +25,15 @@ const News = () => {
             <Grid item xs={4} sm={8} md={4}>
               <Card sx={{ boxShadow: "1px 2px 10px rgba(0,0,0,0.1)" }}>
                 <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    sx={{ width: 1 }}
-                    image="https://i.ibb.co/RyLhF5B/couple-with-catalog-buying-car-at-dealership-salon-e1616637267577.jpg"
-                    alt="green iguana"
-                  />
+                  <Box sx={{ overflow: "hidden" }}>
+                    <CardMedia
+                      className="imgNews"
+                      component="img"
+                      sx={{ width: 1 }}
+                      image="https://i.ibb.co/RyLhF5B/couple-with-catalog-buying-car-at-dealership-salon-e1616637267577.jpg"
+                      alt="green iguana"
+                    />
+                  </Box>
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                       Tayata Car Decline Over Shadows Light-Truck Gain
@@ -49,13 +52,16 @@ const News = () => {
             <Grid item xs={4} sm={8} md={4}>
               <Card sx={{ boxShadow: "1px 2px 10px rgba(0,0,0,0.1)" }}>
                 <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    sx={{ width: 1 }}
-                    image="https://i.ibb.co/pd1808B/smiling-man-holding-safety-belt-in-car-and-looking-away.jpg
+                  <Box sx={{ overflow: "hidden" }}>
+                    <CardMedia
+                      className="imgNews"
+                      component="img"
+                      sx={{ width: 1 }}
+                      image="https://i.ibb.co/pd1808B/smiling-man-holding-safety-belt-in-car-and-looking-away.jpg
                     "
-                    alt="green iguana"
-                  />
+                      alt="green iguana"
+                    />
+                  </Box>
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                       Dealer Agency Warns Car Makers On Tesla Boast
@@ -74,7 +80,15 @@ const News = () => {
             <Grid item xs={4} sm={8} md={4}>
               <Card sx={{ boxShadow: "1px 2px 10px rgba(0,0,0,0.1)" }}>
                 <CardActionArea>
-                  <CardMedia component="img" sx={{ width: 1 }} image="https://i.ibb.co/nCmGd04/man-wants-to-rent-a-car.jpg" alt="green iguana" />
+                  <Box sx={{ overflow: "hidden" }}>
+                    <CardMedia
+                      className="imgNews"
+                      component="img"
+                      sx={{ width: 1 }}
+                      image="https://i.ibb.co/nCmGd04/man-wants-to-rent-a-car.jpg"
+                      alt="green iguana"
+                    />
+                  </Box>
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                       Rent A Car So Easiest With A Few Minutes From Rentive

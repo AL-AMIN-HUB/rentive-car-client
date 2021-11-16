@@ -28,6 +28,11 @@
   color: #ffdd00;
 }
 
+.imgNews:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
 /* few media query use for  responsive this page */
 @media only screen and (max-width: 768px) {
   .choose-box {

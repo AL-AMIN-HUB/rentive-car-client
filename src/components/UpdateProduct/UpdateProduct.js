@@ -8,7 +8,7 @@ import swal from "sweetalert";
 
 const UpdateProduct = () => {
   const history = useHistory();
-  const url = "/explore";
+  const url = "/dashboard/ManageProducts";
   const [product, setProduct] = useState({});
   const { Id } = useParams();
   const { register, handleSubmit, reset } = useForm();

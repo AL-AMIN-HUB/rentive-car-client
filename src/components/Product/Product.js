@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import Aos from "aos";
+import { Box } from "@mui/system";
 
 Aos.init({ duration: "2000" });
 
@@ -12,7 +13,9 @@ const Product = ({ product }) => {
       <Grid item xs={4} sm={8} md={4}>
         <Card data-aos="fade-up" sx={{ boxShadow: "1px 2px 10px rgba(0,0,0,0.1)", p: 1, height: "100%" }}>
           <CardActionArea>
-            <CardMedia component="img" sx={{ width: 1, height: "293px" }} image={img} alt="green iguana" />
+            <Box sx={{ overflow: "hidden" }}>
+              <CardMedia className="imgNews" component="img" sx={{ width: 1, height: "293px" }} image={img} alt="green iguana" />
+            </Box>
             <CardContent data-aos="fade-zoom-in">
               <Typography gutterBottom variant="h5" component="div">
                 {name}
