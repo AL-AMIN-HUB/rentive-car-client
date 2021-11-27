@@ -24,7 +24,6 @@ In the project uses:
 - Axios,
 - React Rating,
 - Mui Navbar,
-- CSS3,
 - JSX,
 
 ### Here are some ideas about this project
