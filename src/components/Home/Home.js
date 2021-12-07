@@ -7,9 +7,9 @@ import Misson from "../Mission/Misson";
 import News from "../News/News";
 import ReviewHeader from "../ReviewHeader/ReviewHeader";
 import Services from "../Services/Services";
-import UiReview from "../UiReview/UiReview";
 import Works from "../Works/Works";
 import Footer from "../Footer/Footer";
+import SliderReview from "../SliderReview/SliderReview";
 
 const Home = () => {
   return (
@@ -22,7 +22,7 @@ const Home = () => {
       <Contact />
       <ChooseUs />
       <ReviewHeader />
-      <UiReview />
+      <SliderReview />
       <News />
       <Footer />
     </div>

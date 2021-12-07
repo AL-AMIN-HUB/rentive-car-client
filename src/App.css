@@ -28,9 +28,11 @@
   color: #ffdd00;
 }
 
+.imgNews {
+  transition: 0.5s;
+}
 .imgNews:hover {
   transform: scale(1.1);
-  transition: 0.5s;
 }
 
 /* few media query use for  responsive this page */

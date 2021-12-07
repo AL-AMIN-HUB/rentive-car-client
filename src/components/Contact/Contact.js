@@ -1,7 +1,7 @@
 import { Button, Container, Grid, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import TextareaAutosize from "@mui/core/TextareaAutosize";
 import React from "react";
+import { TextareaAutosize } from "@mui/base";
 import "./Contact.css";
 import Menubar from "../../Shared/Menubar/Menubar";
 import TypewriterComponent from "typewriter-effect";
